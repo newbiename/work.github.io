@@ -1,0 +1,11 @@
+{
+  "name": "testyarn",
+  "version": "1.0.0",
+  "description": "test this",
+  "main": "index.js",
+  "author": "dsh",
+  "license": "MIT",
+  "dependencies": {
+    "qrcode": "1.4.0"
+  }
+}
