@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    ul {
+      width: 1200px;
+      margin: 0 auto;
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .big {
+      width: 130px;
+      text-align: center;
+      margin-right: 68px;
+      margin-bottom: 30px;
+    }
+
+
+    .big>.singer {
+      margin: 10px auto;
+    }
+
+    .big>.pic {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    .big>.songNum {
+      font-weight: 100;
+      font-size: 16px;
+    }
+
+    .small {
+      width: 122px;
+      text-align: center;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      margin-right: 78px;
+      margin-bottom: 15px;
+
+    }
+
+    .small>.singer {
+      width: 82px;
+      margin: 10px auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-left: 10px;
+      font-weight: 300;
+      font-size: 15px;
+
+    }
+
+    .small>.pic {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <!-- <li class="big">
+      <img src="https://i2.hdslb.com/bfs/face/d9348a10f67c307e64f2cfa6ae435b2676608394.jpg@96w_96h_1c_1s.webp" alt=""
+        class="pic">
+      <h3 class="singer">zjl</h3>
+      <p class="songNum">100首</p>
+    </li> -->
+
+    <!-- <li class="small">
+      <img src="https://i2.hdslb.com/bfs/face/d9348a10f67c307e64f2cfa6ae435b2676608394.jpg@96w_96h_1c_1s.webp" alt=""
+        class="pic">
+      <p class="singer">zjl</p>
+    </li> -->
+  </ul>
+  <script>
+    let ul = document.querySelector('ul')
+
+    let src = `http://101.43.173.17:9090/api/www/artist/artistInfo?category=0&pn=1&rn=100`
+    fetch(src)
+      .then((res) => { return res.json() })
+      .then((v) => {
+        let arr = v.data.artistList
+        console.log(arr);
+        arr.forEach((value, index) => {
+
+          if (index < 12) {
+            ul.innerHTML += `
+          <li class ='big'>
+            <img src=${value.pic300}
+            alt="" class="pic">
+            <h3 class="singer">${value.name}</h3>
+            <p class="songNum">${value.musicNum}首音乐</p>
+        </li>
+    `
+          } else {
+            ul.innerHTML += `
+          <li class ='small'>
+            <img src=${value.pic70}
+            alt="" class="pic">
+            <h3 class="singer">${value.name}</h3>
+        </li>
+    `
+          }
+
+        });
+      })
+
+  </script>
+</body>
+
+</html>

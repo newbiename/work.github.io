@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>get</button>
+  <script>
+    const btn = document.querySelector('button')
+    let num = 2
+    let text='G'
+    btn.onclick = () => {
+
+      let src = `http://101.43.173.17:9090/api/www/artist/artistInfo?category=${num}&prefix=${text}&pn=2&rn=100&`
+
+      fetch(src)
+        .then(
+          (res) => {
+            return res.json()
+          })
+        .then((v) => {
+          console.log(v);
+        })
+    }
+
+    // src = `http://101.43.173.17:9090/api/www/artist/artistInfo?category=0&pn=1&rn=100`
+   //         协议    服务器        ：端口 /路径                     ？请求参数     category 种类
+   //         pn 页数 page number       rn  每页数量 return number  
+  </script>
+</body>
+
+</html>

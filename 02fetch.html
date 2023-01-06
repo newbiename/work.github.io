@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发送</title>
+</head>
+
+<body>
+  <script>
+    let src = `http://101.43.173.17:9090/api/www/artist/artistInfo?category=0&pn=1&rn=100`
+
+    // 初级讲解
+    let res = fetch(src,)
+
+    // console.log(res);
+    // res 返回的 是 Promise 的 数据类型 属于异步数据 
+    // 看见异步 就用 .then 或者anwyen
+    // .then   如果 res 获取到数据 就输出 2 
+
+    let res1 = res.then((res) => {
+      // console.log(2);
+      return res.json(true);
+    })
+
+    // console.log(res1);
+    // 返回的也是 Promise 数据类型
+
+    // res1.then((v) => { console.log(v); })
+
+    // 解析出 实际内容  
+    // 或许可以用【。。。】 来完全解析  map 或者也可以
+
+
+    // 合并方法 
+    fetch(src)
+      .then(
+        (res) => {
+          return res.json()
+        })
+      .then((v) => {
+        console.log(v);
+      })
+
+      
+  </script>
+</body>
+
+</html>
