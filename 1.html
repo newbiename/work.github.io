@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 本地跨域原因
+      //// 不同源
+      ////协议不一样 http fir
+      //// 域名 www。baidu。com
+      ////端口号 80
+
+      // 解决跨域
+      //// 自己的服务器
+      ////// 修改
+      ///// 如果服务器跨物种   使用  jsp ：link ，src
+      //// cors 需要后端配合
+      
+      // 别人的服务器
+      //// 代理
+      ///// 向自己服务器发送请求
+      ///// 限制仅对浏览器    服务器 对接 服务器 解决限制
+      /////
+      console.log(location);
+      let url = location;
+
+      fetch(url)
+        .then((res) => res.text())
+        .then((v = {}));
+    </script>
+  </body>
+</html>

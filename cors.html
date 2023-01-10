@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let url = `https://localhost:8060`;
+
+      // let option = {
+      //   method: "post",
+      //   Headers: {
+      //     // 简单请求 需要origin="*"
+
+      //     //json为预见请求 cors 需要origin="*" method:'get,post'
+
+      //     "content-type": "application/x-www-form-urlencoded",
+      //   },
+      //   body: "key=value",
+      // };
+      fetch(url)
+        .then((res) => res.text())
+        .then((v) => {
+          console.log(v);
+        });
+    </script>
+  </body>
+</html>
